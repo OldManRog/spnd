@@ -21,9 +21,11 @@ import { DatePipe } from '@angular/common';
 export class MainComponent implements OnInit {
   user!: User;
   request!: GetSingleUserRequest;
+  id!: number;
+
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav;
-  id!: number;
+
   currentTime!: Date;
   date!: Date;
 
@@ -37,7 +39,6 @@ export class MainComponent implements OnInit {
   ngOnInit(): void {
     this.getUserDetails();
     this.getTime();
-   
   }
 
   getUserDetails() {
@@ -51,22 +52,7 @@ export class MainComponent implements OnInit {
       });
   }
 
-  ngAfterViewInit() {
-    this.observer
-      .observe(['(max-width: 800px)'])
-      .pipe(delay(1))
-      .subscribe((res) => {
-        if (res.matches) {
-          this.sidenav.mode = 'over';
-          this.sidenav.close();
-        } else {
-          this.sidenav.mode = 'side';
-          this.sidenav.open();
-        }
-      });
-  }
-
-  getTime():void {
+  getTime(): void {
     this.date = new Date();
     this.datepipe.transform(this.date, 'yyy-MM-dd');
   }

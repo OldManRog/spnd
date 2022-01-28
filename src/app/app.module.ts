@@ -13,10 +13,26 @@ import { MatDividerModule } from '@angular/material/divider';
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { DatePipe } from '@angular/common';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSelectModule } from '@angular/material/select';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
+import { NavigationComponent } from './navigation/navigation.component';
 
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, MainComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    MainComponent,
+    DashboardComponent,
+    NavigationComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,9 +42,18 @@ import { DatePipe } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     MatDividerModule,
-    HttpClientModule
+    MatFormFieldModule,
+    MatSelectModule,
+    MatTabsModule,
+    MatIconModule,
+    HttpClientModule,
+    LayoutModule,
+    MatListModule,
+    MatGridListModule,
+    MatCardModule,
+    MatMenuModule,
   ],
   providers: [DatePipe],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

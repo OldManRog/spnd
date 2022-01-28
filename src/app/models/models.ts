@@ -1,5 +1,6 @@
 
 
+
 export interface GetSingleUserResponse {
   success: boolean;
   systemMessage: string;
@@ -9,7 +10,50 @@ export interface GetSingleUserResponse {
 
 export interface GetSingleUserRequest {
  id : number;
+
+
 }
+
+/**
+ * Get all values from a specific user by the userId
+ * 
+ * HTTP Method: GET
+ * 
+ * 
+ */
+
+// Primary Response Object
+export interface GetAllValuesByUserIdResponse {
+  success: boolean;
+  systemMessage: string;
+  data: Array<SingleValueResponse>;
+} 
+
+export interface SingleValueResponse {
+  value: APIResponse<SingleValue>
+} 
+
+export interface SingleValue{
+  valueId: number;
+  valueAmount: number;
+  valueName: string;
+  lastUpdateAmount: number;
+  budgetFrequency: number;
+  valueByDate: string;
+}
+
+//Primary Resquest Object
+
+export interface GetAllValuesByUserIdRequest{
+ id:number
+}
+
+/**
+ * 
+ * User Object used for multiple APIs within
+ * 
+ */
+
 
 export interface User {
   name: string;
@@ -23,33 +67,8 @@ export interface APIResponse<T> {
   results: Array<T>;
 }
 
-// interface Genre {
-//   name: string;
-// }
+export interface ValueTile {
+  cols: number;
+  rows: number;
+}
 
-// interface ParentPlatform {
-//   platform: {
-//     name: string;
-//     slug:string;
-//   };
-// }
-
-// interface Publishers {
-//   name: string;
-// }
-
-// interface Rating {
-//   id: number;
-//   count: number;
-//   title: string;
-// }
-
-// interface Screenshots {
-//   image: string;
-// }
-
-// interface Trailer {
-//   data: {
-//     max: string;
-//   };
-// }
