@@ -28,15 +28,20 @@ export interface GetAllValuesByUserIdResponse {
   systemMessage: string;
   data: Array<SingleValueResponse>;
 } 
+export interface ValueTile {
+  cols: number;
+  rows: number;
+  valueData: SingleValueResponse;
+}
 
 export interface SingleValueResponse {
-  value: APIResponse<SingleValue>
+  value: SingleValue;
 } 
-
 export interface SingleValue{
   valueId: number;
   valueAmount: number;
   valueName: string;
+  budgetedAmount: number,
   lastUpdateAmount: number;
   budgetFrequency: number;
   valueByDate: string;
@@ -67,8 +72,4 @@ export interface APIResponse<T> {
   results: Array<T>;
 }
 
-export interface ValueTile {
-  cols: number;
-  rows: number;
-}
 

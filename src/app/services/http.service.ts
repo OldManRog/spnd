@@ -16,13 +16,16 @@ export class HttpService {
   getSinglerUserById(
     request: GetSingleUserRequest
   ): Observable<GetSingleUserResponse> {
-    return this.http.post<GetSingleUserResponse>(`${env.BASE_URL}get/user`, 1);
+    return this.http.post<GetSingleUserResponse>(`${env.BASE_URL}get/user`, 44);
   }
 
   getAllValuesByUserId(
     request:GetAllValuesByUserIdRequest
     ):Observable<GetAllValuesByUserIdResponse> {
-    return this.http.post<GetAllValuesByUserIdResponse>(`${env.BASE_URL}get/users/value`,1);
+    return this.http.post<GetAllValuesByUserIdResponse>(
+      `${env.BASE_URL}get/users/value`,
+      44
+    );
   }
 }
 
