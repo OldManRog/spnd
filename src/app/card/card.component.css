@@ -10,6 +10,8 @@
    left: 15px;
    right: 15px;
    bottom: 15px;
+   background-color: rgba(208, 205, 241, 0.15);  
+   border-radius: 30px;
 }
 
 

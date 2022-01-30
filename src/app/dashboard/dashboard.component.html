@@ -16,29 +16,43 @@
               <div class="dashboard-card-content-gauge">
                 <div>
                   <mwl-gauge
-                    [max]="valueAmount"
+                    [max]="valueTile.valueData.value.valueAmount"
                     [dialStartAngle]="-90"
                     [dialEndAngle]="-90.001"
-                    [value]="25"
+                    [value]="valueTile.valueData.value.budgetedAmount"
                     [animated]="true"
                     [color]="getColor"
                     [animationDuration]="2"
                   ></mwl-gauge>
                 </div>
-                <h3>details:</h3>
+                <div class="data-header">
+                    <h3 class="data-header-title">Details:</h3>
+                </div>
               </div>
               <div class="card-data-grid">
                 <ul class="card-data-grid-details-grid">
                   <div class="card-data-grid-details-grid-amount-c">
-                    <li>spnd goal:</li>
+                    <li class="card-data-grid-details-grid-amount-c-title">spnd Goal :</li>
                     <li class="card-data-grid-details-grid-amount-c-value">${{ valueTile.valueData.value.valueAmount }}</li>
                   </div>
+                    <div class="card-data-grid-details-grid-amount-b">
+                    <li class="card-data-grid-details-grid-amount-b-title">Current Tracking :</li>
+                    <li class="card-data-grid-details-grid-amount-b-value">${{ valueTile.valueData.value.budgetedAmount }}</li>
+                  </div>
                   <div class="card-data-grid-details-grid-amount-r">
-                    <li>Remaing amount:</li>
+                    <li class="card-data-grid-details-grid-amount-r-title" >Remaing amount :</li>
                     <li class="card-data-grid-details-grid-amount-r-value">
                       ${{
                         valueTile.valueData.value.valueAmount -
                           valueTile.valueData.value.budgetedAmount
+                      }}
+                    </li>
+                  </div>
+                  <div class="card-data-grid-details-grid-amount-l">
+                    <li class="card-data-grid-details-grid-amount-l-title">Latest Amount Added :</li>
+                    <li class="card-data-grid-details-grid-amount-l-value">
+                      ${{
+                        valueTile.valueData.value.lastUpdateAmount
                       }}
                     </li>
                   </div>
@@ -51,12 +65,12 @@
     </div>
     <div>
       <mat-grid-tile
-        *ngFor="let i of [1, 2, 3, 4]"
+        *ngFor="let i of [1]"
         [colspan]="(cardLayout | async)?.chart?.cols"
         [rowspan]="(cardLayout | async)?.chart?.rows"
       >
         <app-card title="Card {{ i }}">
-          <div>Chart Content Here</div>
+         <app-add-value-form></app-add-value-form>
         </app-card>
       </mat-grid-tile>
     </div>

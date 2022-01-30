@@ -10,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule} from '@angular/material/button';
 import { MatIconModule} from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
+import {MatInputModule } from '@angular/material/input'
 import { HomeComponent } from './home/home.component';
 import { MainComponent } from './main/main.component';
 import { DatePipe } from '@angular/common';
@@ -24,6 +25,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { NavigationComponent } from './navigation/navigation.component';
 import { CardComponent } from './card/card.component';
+import { AddValueFormComponent } from './add-value-form/add-value-form.component';
+import { MatNativeDateModule } from '@angular/material/core'
+import { MatDatepickerModule } from '@angular/material/datepicker';
+
 
 
 @NgModule({
@@ -34,6 +39,7 @@ import { CardComponent } from './card/card.component';
     DashboardComponent,
     NavigationComponent,
     CardComponent,
+    AddValueFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +61,10 @@ import { CardComponent } from './card/card.component';
     MatCardModule,
     MatMenuModule,
     GaugeModule.forRoot(),
+    MatInputModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatDatepickerModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

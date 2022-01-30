@@ -2,14 +2,11 @@
   margin: 20px;
 }
 
+mat-grid-list {
+}
+
 .scrollable-container {
-  overflow: x !important;
-  display: inline !important;
-  overflow-y: hidden !important;
   background-color: black !important;
-  flex-wrap: nowrap;
-  display: flex;
-  flex-direction: column;
 }
 
 //dashboard card container
@@ -20,8 +17,11 @@
   right: 15px;
   bottom: 15px;
   border-radius: 25px;
-  display: inline-block !important;
+  display: flex;
+  align-items: center;
   text-align: center;
+ background-color: rgba(208, 205, 241, 0.15);  
+
 
   // box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.35);
 }
@@ -30,6 +30,7 @@
   top: 5px;
   right: 10px;
 }
+
 .dashboard-card-content {
   text-align: center;
   flex-grow: 1;
@@ -51,52 +52,111 @@
   }
 
   &-valueName {
-    font-size: 30px;
+    font-size: 15px;
     text-align: center;
     text-decoration: none !important;
+    padding: 12px;
   }
 }
 
 //Gauge
 
 .dashboard-card-content-gauge {
-  width: 25%;
+  width: 40%;
 }
 
 .dashboard-card-content-gauge-label {
   font-size: 25px;
 }
 
-//card details
+//card data header
+.data-header {
+  &-title {
+    color: purple;
+    font-size: 12px;
+  }
+}
 
+//card details
 .card-data-grid {
   display: flex;
-  width: 100%;
+  width: 120%;
+  background-color: rgb(94, 255, 0);
+  border-radius: 20px;
+  padding: 0;
+  justify-content: center;
+  box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.35);
+ background-color: rgba(53, 2, 58, 0.15);  
+ backdrop-filter: blur(10px) !important;
+
+
+
 
   &-details-grid {
     list-style-type: none;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     width: 100%;
-    background-color: aqua;
-    justify-content: space-between;
+    // background-color: aqua;
+    justify-self: start;
+    padding-left: 0;
+    padding: 20px;
+    padding-bottom: 5px;
+
+    
 
     &-amount-c {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
 
-      &-value {
-       
+      &-title {
+       color: rgb(0, 0, 0);
+      }
+
+     &-value {
+        color: rgb(97, 114, 2);
       }
     }
+
+    &-amount-b {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-title {
+       color: rgb(0, 2, 1);
+      }
+
+       &-value {
+        color: rgb(97, 114, 2);
+      }
+    }
+
     &-amount-r {
       display: flex;
       flex-direction: row;
       justify-content: space-between;
 
+      &-title {
+        color: rgb(0, 0, 0);
+      }
+
+       &-value {
+        color: rgb(12, 23, 114);
+      }
+    }
+
+    &-amount-l {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      &-title {
+        color: rgb(0, 5, 3);
+      }
       &-value {
-        
+        color: green;
       }
     }
   }

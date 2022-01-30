@@ -1,0 +1,36 @@
+<form>
+  <div class="add-value-form-container">
+    <mat-form-field class="add-value-form-container-field-value">
+      <input matInput placeholder="What are you saving for?" />
+    </mat-form-field>
+
+    <div class="add-value-form-container-middle">
+      <mat-form-field class="add-value-form-container-middle-field-valueAmount">
+        <input matInput placeholder="Goal Amount" />
+      </mat-form-field>
+
+      <div class="add-value-form-container-middle-datepicker">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Redemption Date"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </div>
+    </div>
+
+    <div class="add-value-form-container-frequency">
+      <!-- <mat-form-field class="add-value-form-container-frequency-field">
+        <input matInput placeholder="tell us your saving schedule" />
+      </mat-form-field> -->
+      <mat-label class="add-value-form-container-frequency-label">Tell Us Your Saving Schedule</mat-label>
+      <mat-select
+        class="add-value-form-container-frequency-dropdown"
+        name="food"
+      >
+        <mat-option> </mat-option>
+      </mat-select>
+    </div>
+  </div>
+</form>

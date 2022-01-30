@@ -1,0 +1,58 @@
+.add-value-form-container {
+  display: flex;
+  flex-direction: column;
+  // background-color: aqua;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+ 
+
+
+&-field-value {
+     width: 80%;
+      font-size: 18px;
+}
+
+  &-middle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &-field-valueAmount {
+      width: 80%;
+      font-size: 18px;
+      
+    }
+
+    &-datePicker {
+    }
+  }
+
+  &-frequency {
+    width: 100%;
+    font-size: 18px;
+
+    &-dropdown {
+      width: 80%;
+    }
+    &-label {
+        color: rgb(117, 119, 121);
+    }
+  }
+}
+
+
+ ::ng-deep .mat-focused .mat-form-field-label {
+  /*change color of label*/
+  color: green !important;
+ }
+
+ ::ng-deep.mat-form-field-underline {
+  /*change color of underline*/
+  background-color: green !important;
+} 
+
+::ng-deep.mat-form-field-ripple {
+ /*change color of underline when focused*/
+ background-color: green !important;;
+}
