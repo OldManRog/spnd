@@ -16,6 +16,8 @@ import {
 } from '../models/models';
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Subscription } from 'rxjs';
+import { CommonServices as CommonService } from '../services/common-services.service';
+
 
 @Component({
   selector: 'app-dashboard',
@@ -30,9 +32,12 @@ export class DashboardComponent {
   getAllValuesByUserIdResponse!: GetAllValuesByUserIdResponse;
   getAllValuesByUserIdRequest!: GetAllValuesByUserIdRequest;
   valueTiles: ValueTile[] = [];
+  valueTile!: ValueTile;
   valueSub!: Subscription;
   singleValueResponseList!: Array<SingleValueResponse>;
+  messageReceived: any;
 
+  // private subscriptionName!: Subscription; //important to create a subscription
   // valueTile!: ValueTile;
   // singleValueResponse!: SingleValueResponse;
   // singleValueName!: string;
@@ -45,8 +50,30 @@ export class DashboardComponent {
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService,
     private observer: BreakpointObserver,
-    public datepipe: DatePipe
-  ) {}
+    public datepipe: DatePipe,
+    private service: CommonService
+  ) {
+
+this.valueSub = this.service.getUpdate().subscribe(value => {
+  // this.valueTile.valueData = {
+  //   valueId: value.valueId,
+  //   valueAmount: value.valueAmount,
+  //   valueName: value.valueName,
+  //   budgetedAmount: value.budgetedAmount,
+  //   lastUpdateAmount: value.lastUpdateAmount,
+  //   budgetFrequency: value.budgetFrequency,
+  //   valueByDate: value.valueByDate,
+  // };
+
+  this.valueTiles.push({
+    cols: 1,
+    rows: 1,
+    valueData: value,
+  });
+  console.log("Value Observable " + JSON.stringify(value));
+})
+
+  }
 
   /** Based on the screen size, switch from standard to one column per row */
 
@@ -77,20 +104,16 @@ export class DashboardComponent {
         console.log('data  :: :: ' + response.data.length);
 
         response.data.forEach((res) => {
-          setTimeout(() => {
-             this.budgetedAmount = res.value.budgetedAmount;
-             this.valueAmount = res.value.valueAmount;
-            console.log('valueAmount' + this.valueAmount);
-          }, 1000);
           this.valueTiles?.push({
             cols: 1,
             rows: 1,
-            valueData: res,
+            valueData: res.value,
           });
-          console.log('vslueTiles ' + this.valueTiles.length);
+          console.log('valueTiles length' + this.valueTiles.length);
         });
       });
   }
+
 
   cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -104,9 +127,9 @@ export class DashboardComponent {
       }
 
       return {
-        columns: 4,
+        columns: 5,
         miniCard: { cols: 1, rows: 1 },
-        chart: { cols: 2, rows: 1 },
+        chart: { cols: 3, rows: 2 },
       };
     })
   );

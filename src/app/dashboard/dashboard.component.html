@@ -1,59 +1,88 @@
 <div class="grid-container">
   <h1>{{ user?.name }}</h1>
   <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="350px">
-    <div class="scrollable-container">
+    <div class="grid-container-list">
       <mat-grid-tile
         *ngFor="let valueTile of valueTiles"
         [colspan]="valueTile.cols"
         [rowspan]="valueTile.rows"
       >
         <mat-card class="dashboard-card">
+          <mat-card-header class="dashboard-card-header">
+            <mat-card-title>
+              <button
+                mat-icon-button
+                class="more-button"
+                [matMenuTriggerFor]="menu"
+                aria-label="Toggle menu"
+              >
+                <mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu" xPosition="before">
+                <button mat-menu-item>Expand</button>
+                <button mat-menu-item>Remove</button>
+              </mat-menu>
+            </mat-card-title>
+          </mat-card-header>
           <mat-card-content class="dashboard-card-content">
             <div class="dashboard-card-content-container">
-              <div class="dashboard-card-content-valueName">
-                {{ valueTile.valueData.value.valueName }}
+              <div class="dashboard-card-content-container-valueName">
+                {{ valueTile.valueData.valueName }}
               </div>
+              <!-- <div class="dashboard-card-content-container-moreBtn">
+                <i class="fas fa-ellipsis-h"></i>
+              </div> -->
               <div class="dashboard-card-content-gauge">
                 <div>
                   <mwl-gauge
-                    [max]="valueTile.valueData.value.valueAmount"
+                    [max]="valueTile.valueData.valueAmount"
                     [dialStartAngle]="-90"
                     [dialEndAngle]="-90.001"
-                    [value]="valueTile.valueData.value.budgetedAmount"
+                    [value]="valueTile.valueData.budgetedAmount"
                     [animated]="true"
                     [color]="getColor"
                     [animationDuration]="2"
                   ></mwl-gauge>
                 </div>
                 <div class="data-header">
-                    <h3 class="data-header-title">Details:</h3>
+                  <h3 class="data-header-title">Details:</h3>
                 </div>
               </div>
               <div class="card-data-grid">
                 <ul class="card-data-grid-details-grid">
                   <div class="card-data-grid-details-grid-amount-c">
-                    <li class="card-data-grid-details-grid-amount-c-title">spnd Goal :</li>
-                    <li class="card-data-grid-details-grid-amount-c-value">${{ valueTile.valueData.value.valueAmount }}</li>
+                    <li class="card-data-grid-details-grid-amount-c-title">
+                      spnd Goal :
+                    </li>
+                    <li class="card-data-grid-details-grid-amount-c-value">
+                      ${{ valueTile.valueData.valueAmount }}
+                    </li>
                   </div>
-                    <div class="card-data-grid-details-grid-amount-b">
-                    <li class="card-data-grid-details-grid-amount-b-title">Current Tracking :</li>
-                    <li class="card-data-grid-details-grid-amount-b-value">${{ valueTile.valueData.value.budgetedAmount }}</li>
+                  <div class="card-data-grid-details-grid-amount-b">
+                    <li class="card-data-grid-details-grid-amount-b-title">
+                      Current Tracking :
+                    </li>
+                    <li class="card-data-grid-details-grid-amount-b-value">
+                      ${{ valueTile.valueData.budgetedAmount }}
+                    </li>
                   </div>
                   <div class="card-data-grid-details-grid-amount-r">
-                    <li class="card-data-grid-details-grid-amount-r-title" >Remaing amount :</li>
+                    <li class="card-data-grid-details-grid-amount-r-title">
+                      Remaing amount :
+                    </li>
                     <li class="card-data-grid-details-grid-amount-r-value">
                       ${{
-                        valueTile.valueData.value.valueAmount -
-                          valueTile.valueData.value.budgetedAmount
+                        valueTile.valueData.valueAmount -
+                          valueTile.valueData.budgetedAmount
                       }}
                     </li>
                   </div>
                   <div class="card-data-grid-details-grid-amount-l">
-                    <li class="card-data-grid-details-grid-amount-l-title">Latest Amount Added :</li>
+                    <li class="card-data-grid-details-grid-amount-l-title">
+                      Latest Amount Added :
+                    </li>
                     <li class="card-data-grid-details-grid-amount-l-value">
-                      ${{
-                        valueTile.valueData.value.lastUpdateAmount
-                      }}
+                      ${{ valueTile.valueData.lastUpdateAmount }}
                     </li>
                   </div>
                 </ul>
@@ -70,7 +99,7 @@
         [rowspan]="(cardLayout | async)?.chart?.rows"
       >
         <app-card title="Card {{ i }}">
-         <app-add-value-form></app-add-value-form>
+          <app-add-value-form></app-add-value-form>
         </app-card>
       </mat-grid-tile>
     </div>

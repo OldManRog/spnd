@@ -1,16 +1,49 @@
-<form>
+<form [formGroup]="valueForm" (ngSubmit)="submit()">
   <div class="add-value-form-container">
-    <mat-form-field class="add-value-form-container-field-value">
-      <input matInput placeholder="What are you saving for?" />
-    </mat-form-field>
+    <div class="add-value-form-container-top">
+      <mat-form-field class="add-value-form-container-top-field-value">
+        <input
+          type="text"
+          id="valueName"
+          name="valueName"
+          formControlName="valueName"
+          matInput
+          placeholder="What are you saving for?"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="add-value-form-container-top-field-valueAmount">
+        <input
+          type="number"
+          id="valueAmount"
+          name="valueAmount"
+          formControlName="valueAmount"
+          matInput
+          placeholder="Goal Amount"
+        />
+      </mat-form-field>
+    </div>
 
     <div class="add-value-form-container-middle">
-      <mat-form-field class="add-value-form-container-middle-field-valueAmount">
-        <input matInput placeholder="Goal Amount" />
+      <mat-form-field
+        class="add-value-form-container-middle-field-valueReoccuring"
+      >
+        <input
+          type="number"
+          id="valueReocurring"
+          name="valueReocurring"
+          formControlName="valueReocurring"
+          matInput
+          placeholder="Reocurring Amount"
+        />
       </mat-form-field>
 
       <div class="add-value-form-container-middle-datepicker">
         <input
+          type="datetime"
+          id="valueExp"
+          name="valueExp"
+          formControlName="valueExp"
           matInput
           [matDatepicker]="picker"
           placeholder="Redemption Date"
@@ -20,17 +53,60 @@
       </div>
     </div>
 
-    <div class="add-value-form-container-frequency">
-      <!-- <mat-form-field class="add-value-form-container-frequency-field">
-        <input matInput placeholder="tell us your saving schedule" />
-      </mat-form-field> -->
-      <mat-label class="add-value-form-container-frequency-label">Tell Us Your Saving Schedule</mat-label>
-      <mat-select
-        class="add-value-form-container-frequency-dropdown"
-        name="food"
-      >
-        <mat-option> </mat-option>
-      </mat-select>
+    <div class="add-value-form-container-bottom">
+      <div class="add-value-form-container-bottom-wrapper">
+        <div class="add-value-form-container-bottom-wrapper-dropdown-1">
+          <mat-label
+            class="add-value-form-container-bottom-wrapper-dropdown-1-label"
+            >Tell Us Your Saving Schedule</mat-label
+          >
+
+          <select
+            [(ngModel)]="scheduleFreq"
+            (change)="changeScheduleType($event)"
+            formControlName="valueFreq"
+            class="add-value-form-container-bottom-wrapperdropdown-1-selector"
+            name="valueFreq"
+          >
+            <option vauge>Select your Saving Frequency</option>
+            <option
+              *ngFor="let scheduleType of scheduleTypes"
+              [ngValue]="scheduleType"
+            >
+              {{ scheduleType }}
+            </option>
+          </select>
+        </div>
+
+        <div class="dd-value-form-container-bottom-wrapper-dropdown-2">
+          <!-- <mat-label
+            class="add-value-form-container-bottom-wrapper-dropdown-2-label"
+            >Tell Us Your Saving Schedule</mat-label
+            > -->
+          <select
+            [(ngModel)]="scheduleReTime"
+            (change)="changeScheduleTime($event)"
+            formControlName="valueSchedule"
+            class="add-value-form-container-bottom-wrapper-dropdown-2-selector"
+            name="valueSchedule"
+          >
+            <option vauge>Select your Saving Frequency</option>
+            <option
+              *ngFor="let scheduleTime of scheduleTimes"
+              [ngValue]="scheduleTime"
+            >
+              {{ scheduleTime }}
+            </option>
+          </select>
+        </div>
+      </div>
     </div>
+    <button
+      mat-raised-button
+      class="add-value-form-container-btn"
+      color="primary"
+    >
+      Start your spnding goal!
+    </button>
   </div>
 </form>

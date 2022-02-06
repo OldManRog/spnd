@@ -28,7 +28,9 @@ import { CardComponent } from './card/card.component';
 import { AddValueFormComponent } from './add-value-form/add-value-form.component';
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { SpndDashboardComponent } from './spnd-dashboard/spnd-dashboard.component';
 
 
 @NgModule({
@@ -40,6 +42,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     NavigationComponent,
     CardComponent,
     AddValueFormComponent,
+    SpndDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +68,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     MatNativeDateModule,
     MatInputModule,
     MatDatepickerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
