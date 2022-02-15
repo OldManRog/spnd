@@ -85,6 +85,7 @@
     width: 50%;
     margin: 30px;
     border: none;
+   background-color:  rgb(7, 141, 14) !important;
   }
 
   &-btn:hover {
@@ -94,15 +95,15 @@
 
 ::ng-deep .mat-focused .mat-form-field-label {
   /*change color of label*/
-  color: rgb(141, 7, 141) !important;
+  color: rgb(7, 141, 14) !important;
 }
 
 ::ng-deep.mat-form-field-underline {
   /*change color of underline*/
-  background-color: rgb(141, 7, 141) !important;
+  background-color: rgb(7, 141, 14) !important;
 }
 
 ::ng-deep.mat-form-field-ripple {
   /*change color of underline when focused*/
-  background-color: rgb(141, 7, 141) !important;
+  background-color: rgb(7, 141, 14) !important;
 }

@@ -65,11 +65,11 @@ this.valueSub = this.service.getUpdate().subscribe(value => {
   //   valueByDate: value.valueByDate,
   // };
 
-  this.valueTiles.push({
-    cols: 1,
-    rows: 1,
-    valueData: value,
-  });
+  // this.valueTiles.push({
+  //   cols: 1,
+  //   rows: 1,
+  //   valueData: value,
+  // });
   console.log("Value Observable " + JSON.stringify(value));
 })
 

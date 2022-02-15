@@ -1,7 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { AddValueRequest, AddValueResponse, SingleValue, ValueTile } from '../models/models';
+import { AddValueRequest, AddValueResponse, SingleValue, SingleValueResponse, ValueTile } from '../models/models';
 import { CommonServices as CommonService} from '../services/common-services.service';
 import { HttpService } from '../services/http.service';
 

@@ -28,11 +28,6 @@ export interface AddValueResponse {
   success: boolean;
   systemMessage: string
   data: SingleValue;
-  lastUpdateAmount: number;
-  valueName: string;
-  valueAmount: number;
-  valueByDate: string;
-  userId: number;
 }
 /*************************************
  *
