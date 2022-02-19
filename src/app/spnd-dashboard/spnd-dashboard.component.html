@@ -23,6 +23,13 @@
             >
               {{ singleValue.valueName }}
             </h1>
+            <div class="dash-home-grid-scrolling-container-card-header-options">
+              <fa-icon
+                [icon]="options"
+                [styles]="{ stroke: 'white', color: 'white' }"
+                class="dash-home-grid-scrolling-container-card-header-options-i"
+              ></fa-icon>
+            </div>
           </div>
           <div class="dash-home-grid-scrolling-container-card-body">
             <div
@@ -72,7 +79,9 @@
                   </li>
                   <li
                     class="dash-home-grid-scrolling-container-card-body-data-items-remaining-amount"
-                  ></li>
+                  >
+                    {{ singleValue.valueAmount - singleValue.budgetedAmount }}
+                  </li>
                 </div>
 
                 <div
@@ -89,7 +98,7 @@
                     {{ singleValue.lastUpdateAmount }}
                   </li>
                 </div>
-<!-- 
+                <!-- 
                 <div
                   class="dash-home-grid-scrolling-container-card-body-data-items-frequency"
                 >

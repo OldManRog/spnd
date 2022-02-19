@@ -31,8 +31,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { SpndDashboardComponent } from './spnd-dashboard/spnd-dashboard.component';
-
-
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas} from '@fortawesome/free-solid-svg-icons';
+import { far } from '@fortawesome/free-regular-svg-icons';
 @NgModule({
   declarations: [
     AppComponent,
@@ -70,9 +71,13 @@ import { SpndDashboardComponent } from './spnd-dashboard/spnd-dashboard.componen
     MatDatepickerModule,
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {
+    library.add(fas);
+  }
+}
