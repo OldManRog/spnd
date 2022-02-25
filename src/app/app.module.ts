@@ -34,6 +34,13 @@ import { SpndDashboardComponent } from './spnd-dashboard/spnd-dashboard.componen
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas} from '@fortawesome/free-solid-svg-icons';
 import { far } from '@fortawesome/free-regular-svg-icons';
+import { DropDownButtonModule } from '@syncfusion/ej2-angular-splitbuttons';
+import { enableRipple } from '@syncfusion/ej2-base';
+import { ModalModule } from './_modal';
+
+
+enableRipple(true);
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +79,7 @@ import { far } from '@fortawesome/free-regular-svg-icons';
     FormsModule,
     ReactiveFormsModule,
     FontAwesomeModule,
+    ModalModule,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

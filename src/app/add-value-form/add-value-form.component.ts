@@ -12,7 +12,7 @@ import { HttpService } from '../services/http.service';
 })
 export class AddValueFormComponent implements OnInit {
   scheduleTypes: any = [1, 2, 4];
-  scheduleTimes: any = ["week","year"];
+  scheduleTimes: any = ["week","month"];
   scheduleFreq = null;
   scheduleReTime = null;
   addValueReponse!: AddValueResponse;

@@ -23,12 +23,31 @@
             >
               {{ singleValue.valueName }}
             </h1>
+
             <div class="dash-home-grid-scrolling-container-card-header-options">
-              <fa-icon
-                [icon]="options"
-                [styles]="{ stroke: 'white', color: 'white' }"
-                class="dash-home-grid-scrolling-container-card-header-options-i"
-              ></fa-icon>
+
+               <jw-modal id="modal-1">
+                  <p>my modal content</p>
+                  <button (click)="modalService.close('modal-1')">
+                    Close Modal
+                  </button>
+                </jw-modal>
+              <button 
+                (click)="modalService.open('modal-1')"
+                class="dash-home-grid-scrolling-container-card-header-options-btn" 
+              >
+                <fa-icon
+                  [icon]="options"
+                  [styles]="{ stroke: 'green', color: 'green' }"
+                  class="dash-home-grid-scrolling-container-card-header-options-btn-i"
+                ></fa-icon>
+              </button>
+              <div
+                *ngIf="optionsMenuIsOpen"
+                class="dash-home-grid-scrolling-container-card-header-optionsmenu"
+              >
+               
+              </div>
             </div>
           </div>
           <div class="dash-home-grid-scrolling-container-card-body">

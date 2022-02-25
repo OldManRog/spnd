@@ -18,6 +18,7 @@ import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Subscription } from 'rxjs';
 import { CommonServices as CommonService } from '../services/common-services.service';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
+import { ModalService } from '../_modal';
 
 @Component({
   selector: 'app-spnd-dashboard',
@@ -34,6 +35,7 @@ export class SpndDashboardComponent {
   singleValueList: Array<SingleValue> = [];
   messageReceived!: SingleValueResponse;
   options = faGear;
+  optionsMenuIsOpen: boolean = false;
 
   constructor(
     private breakpointObserver: BreakpointObserver,
@@ -41,7 +43,9 @@ export class SpndDashboardComponent {
     private httpService: HttpService,
     private observer: BreakpointObserver,
     public datepipe: DatePipe,
-    private service: CommonService
+    private service: CommonService,
+    public modalService: ModalService
+    
   ) {
     this.valueSub = this.service.getUpdate().subscribe((value) => {
       console.log('Value Observable ' + JSON.stringify(value));
@@ -79,4 +83,10 @@ export class SpndDashboardComponent {
         });
       });
   }
+
+openOptions(){
+this.optionsMenuIsOpen = true;
+console.log(this.optionsMenuIsOpen);
+}
+
 }

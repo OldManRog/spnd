@@ -17,6 +17,7 @@ import {
 import { ValueConverter } from '@angular/compiler/src/render3/view/template';
 import { Subscription } from 'rxjs';
 import { CommonServices as CommonService } from '../services/common-services.service';
+import { ModalService } from '../_modal';
 
 
 @Component({
@@ -51,7 +52,8 @@ export class DashboardComponent {
     private httpService: HttpService,
     private observer: BreakpointObserver,
     public datepipe: DatePipe,
-    private service: CommonService
+    private service: CommonService,
+    private modalService: ModalService
   ) {
 
 this.valueSub = this.service.getUpdate().subscribe(value => {
