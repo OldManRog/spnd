@@ -25,16 +25,58 @@
             </h1>
 
             <div class="dash-home-grid-scrolling-container-card-header-options">
-
-               <jw-modal id="modal-1">
-                  <p>my modal content</p>
-                  <button (click)="modalService.close('modal-1')">
-                    Close Modal
-                  </button>
-                </jw-modal>
-              <button 
+              <jw-modal id="modal-1">
+                <div class="modal-1-scrolling-container-grid">
+                  <div
+                    class="modal-1-scrolling-container-grid-top-settings-categories-grid"
+                  >
+                    <ul>
+                      <li>
+                        <div class="div">
+                          <button></button>
+                          <span><h1></h1></span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="div">
+                          <button></button>
+                          <span><h1></h1></span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="div">
+                          <button></button>
+                          <span><h1></h1></span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="div">
+                          <button></button>
+                          <span><h1></h1></span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="div">
+                          <button></button>
+                          <span><h1></h1></span>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="div">
+                          <button></button>
+                          <span><h1></h1></span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <button (click)="modalService.close('modal-1')">
+                  Close Modal
+                </button>
+              </jw-modal>
+              <button
                 (click)="modalService.open('modal-1')"
-                class="dash-home-grid-scrolling-container-card-header-options-btn" 
+                class="dash-home-grid-scrolling-container-card-header-options-btn"
               >
                 <fa-icon
                   [icon]="options"
@@ -45,9 +87,7 @@
               <div
                 *ngIf="optionsMenuIsOpen"
                 class="dash-home-grid-scrolling-container-card-header-optionsmenu"
-              >
-               
-              </div>
+              ></div>
             </div>
           </div>
           <div class="dash-home-grid-scrolling-container-card-body">
